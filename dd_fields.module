@@ -1,0 +1,52 @@
+<?php
+/**
+ * @file
+ * Code for the DD Fields feature.
+ */
+
+include_once 'dd_fields.features.inc';
+
+/**
+ * Implements hook_preprocess().
+ */
+function dd_fields_preprocess_entity(&$variables) {
+
+  // Create a neat preprocess function for Paragraphs Items.
+  if ($variables['entity_type'] == 'paragraphs_item') {
+    $func = 'dd_fields_preprocess__paragraphs_item';
+    if (function_exists($func)) {
+      $func($variables);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess() for paragraphs_item entities.
+ */
+function dd_fields_preprocess__paragraphs_item(&$variables) {
+
+  // Create neat preprocess functions for each of the paragraphs_items bundles.
+  $func = 'dd_fields_preprocess__paragraphs_item__' . $variables['elements']['#bundle'];
+  if (function_exists($func)) {
+    $func($variables);
+  }
+}
+
+/**
+ * Implements hook_preprocess() for dd_image bundle of paragraphs_item entities.
+ */
+function dd_fields_preprocess__paragraphs_item__dd_image(&$variables) {
+  $variables['content']['img'] = [
+    '#theme' => 'dd_foundation_img_interchange',
+    '#small' => !empty($variables['field_dd_image_small'][0]['uri']) ? $variables['field_dd_image_small'][0]['uri'] : '',
+    '#medium' => !empty($variables['field_dd_image_medium'][0]['uri']) ? $variables['field_dd_image_medium'][0]['uri'] : '',
+    '#large' => !empty($variables['field_dd_image_large'][0]['uri']) ? $variables['field_dd_image_large'][0]['uri'] : '',
+    '#alt' => !empty($variables['field_dd_title'][0]['safe_value']) ? $variables['field_dd_title'][0]['safe_value'] : '',
+    '#title' => !empty($variables['field_dd_title'][0]['safe_value']) ? $variables['field_dd_title'][0]['safe_value'] : '',
+  ];
+
+  unset($variables['content']['field_dd_image_small']);
+  unset($variables['content']['field_dd_image_medium']);
+  unset($variables['content']['field_dd_image_large']);
+  unset($variables['content']['field_dd_title']);
+}

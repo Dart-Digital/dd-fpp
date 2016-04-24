@@ -1,0 +1,15 @@
+name = DD FPP Text
+description = A "Text" Fieldable Panels Pane bundle
+core = 7.x
+package = Dart Digital
+version = 7.x-1.0
+dependencies[] = ctools
+dependencies[] = dd_fields
+dependencies[] = features
+dependencies[] = fieldable_panels_panes
+dependencies[] = text
+features[ctools][] = fieldable_panels_panes:fieldable_panels_pane_type:1
+features[features_api][] = api:2
+features[field_instance][] = fieldable_panels_pane-dd_text-field_dd_text
+features[fieldable_panels_pane_type][] = dd_text
+project path = sites/all/modules/dart-digital/dd_fields/modules
