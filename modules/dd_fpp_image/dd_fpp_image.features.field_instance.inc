@@ -33,7 +33,7 @@ function dd_fpp_image_field_default_field_instances() {
     'label' => 'Image',
     'required' => 1,
     'settings' => array(
-      'add_mode' => 'select',
+      'add_mode' => 'button',
       'allowed_bundles' => array(
         'dd_image' => 'dd_image',
       ),

@@ -21,7 +21,7 @@ function dd_fields_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'dd_large',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 2,
@@ -91,7 +91,7 @@ function dd_fields_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'dd_medium',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 1,
@@ -161,7 +161,7 @@ function dd_fields_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'dd_small',
+          'image_style' => '',
         ),
         'type' => 'image',
         'weight' => 0,
